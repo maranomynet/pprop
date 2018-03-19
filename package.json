@@ -1,0 +1,26 @@
+{
+  "name": "pprop",
+  "version": "1.0.0",
+  "description": "Tiny, fast, super-lazy value mapping library",
+  "module": "index.js",
+  "main": "cjs/index.js",
+  "author": "Már Örlygsson <mar.nospam@anomy.net> (http://mar.anomy.net)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:maranomynet/propp.git"
+  },
+  "scripts": {
+    "_test": "ospec test.js",
+    "_build": "rollup index.js -o cjs/index.js -f cjs",
+    "test": "yarn run _build && yarn run _test",
+    "build": "rm -rf cjs && npm run _build && npm run _test",
+    "dev": "onchange 'test.js' 'cjs/index.js' -- yarn run _test  &  yarn run _build -w",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "onchange": "^4.0",
+    "ospec": "^2.1",
+    "rollup": "^0.59.4"
+  }
+}
